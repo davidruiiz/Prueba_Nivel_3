@@ -105,5 +105,42 @@ class Pila(object):
 
 def prioridad(pedido):
     nombre, multiverso, descripcion = pedido
-    if (nombre == "Gran conquistador" or multiverso == "616")
-    
+    if (nombre == "Gran Conquistador" or multiverso == "616" or "El que permanece" in descripcion):
+        return 1
+    elif (nombre == "Kang que todo lo sabe" or "Carnicero de Dioses" in descripcion or multiverso == "838"):
+        return 2
+    else:
+        return 3
+
+def procesar_pedidos(pedidos):
+    max_tam_heap = len(pedidos)
+    heap = Heap(max_tam_heap)
+    bitacora = Pila()
+
+    for pedido in pedidos:
+        prioridad_pedido = prioridad(pedido)
+        heap.arribo(pedido, prioridad_pedido)
+
+    while not heap.heap_vacio():
+        pedido_atendido = heap.atencion()
+        bitacora.apilar(pedido_atendido)
+
+    return bitacora
+
+def main():
+    pedidos = [
+        ("Centurión Escarlata", "712", "Ayuda con el Carnicero de Dioses"),
+        ("Gran Conquistador", "616", "Estrategia para detener a El que permanece"),
+        ("Rama-Tut", "700089", "Defensa contra invasión interdimensional"),
+        ("Nathaniel Richards", "838", "Busco asesoramiento sobre cómo proteger mi planeta"),
+        ("Iron Lad", "6311", "Necesito ayuda para encontrar un objeto perdido")
+    ]
+
+    bitacora = procesar_pedidos(pedidos)
+
+    print("Bitácora de pedidos atendidos:")
+    while not bitacora.pila_vacia():
+        print(bitacora.desapilar())
+
+if __name__ == "__main__":
+    main()
