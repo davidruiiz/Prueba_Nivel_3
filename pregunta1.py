@@ -19,7 +19,6 @@ l. no se debe utilizar árbol balanceado.
 
 """
 
-
 class nodoArbol:
     
     def __init__(self, info):
@@ -94,7 +93,7 @@ arbol_decision.der.der.der.der = nodoArbol(ant_man)
 arbol_decision.der.der.der.izq.izq = nodoArbol(thor)
 arbol_decision.der.der.der.izq.der = nodoArbol(hulk)
 
-# Ejemplo de uso
-arbol = ArbolDecision(arbol_decision)
-superheroe_seleccionado = arbol.asignar_superheroe()
-print(f"\nSuperhéroe seleccionado: {superheroe_seleccionado}\nDescripción: {superheroe_seleccionado.descripcion}")
+if __name__ == "__main__":
+    arbol = ArbolDecision(arbol_decision)
+    superheroe_seleccionado = arbol.asignar_superheroe()
+    print(f"\nSuperhéroe seleccionado: {superheroe_seleccionado}\nDescripción: {superheroe_seleccionado.descripcion}")
