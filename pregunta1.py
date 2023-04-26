@@ -31,6 +31,8 @@ class ArbolDecision:
                     nodo_actual = nodo_actual.izq
                 elif respuesta.lower() == "no" or respuesta.lower() == "n" or respuesta.lower() == 0:
                     nodo_actual = nodo_actual.der
+                else:
+                    print("Respuesta inválida, intente de nuevo")
 
 # Crear superhéroes
 iron_man = Superheroe("Iron Man", "Líder para planear misiones de defensa, genio y domina el manejo de tecnología avanzada")
