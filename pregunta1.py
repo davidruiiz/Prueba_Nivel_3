@@ -27,9 +27,9 @@ class ArbolDecision:
                 return nodo_actual.info
             else:
                 respuesta = input(f"{nodo_actual.info} (Sí/No): ")
-                if respuesta.lower() == "sí" or respuesta.lower() == "si" or respuesta.lower() == "s":
+                if respuesta.lower() == "sí" or respuesta.lower() == "si" or respuesta.lower() == "s" or respuesta.lower() == 1:
                     nodo_actual = nodo_actual.izq
-                else:
+                elif respuesta.lower() == "no" or respuesta.lower() == "n" or respuesta.lower() == 0:
                     nodo_actual = nodo_actual.der
 
 # Crear superhéroes
