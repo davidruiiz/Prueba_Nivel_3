@@ -27,9 +27,9 @@ class ArbolDecision:
                 return nodo_actual.info
             else:
                 respuesta = input(f"{nodo_actual.info} (Sí/No): ")
-                if respuesta.lower() == "sí" or respuesta.lower() == "si" or respuesta.lower() == "s" or respuesta.lower() == 1:
+                if respuesta.lower() == "sí" or respuesta.lower() == "si" or respuesta.lower() == "s" or respuesta == "1":
                     nodo_actual = nodo_actual.izq
-                elif respuesta.lower() == "no" or respuesta.lower() == "n" or respuesta.lower() == 0:
+                elif respuesta.lower() == "no" or respuesta.lower() == "n" or respuesta == "0":
                     nodo_actual = nodo_actual.der
                 else:
                     print("Respuesta inválida, intente de nuevo")
@@ -51,9 +51,28 @@ arbol_decision = nodoArbol("¿La misión es intergaláctica?")
 arbol_decision.izq = nodoArbol("¿La misión es en equipo?")
 arbol_decision.der = nodoArbol("¿La misión es de defensa?")
 
-arbol_decision.izq.izq = nodoArbol("¿La misión es de recuperación?")
-arbol_decision.izq.der = nodoArbol("¿La misión es de destrucción?")
+arbol_decision.izq.izq = nodoArbol(khan)
+arbol_decision.izq.der = nodoArbol(cap_marvel)
 
-arbol_decision.izq.izq.izq = nodoArbol("¿La misión requiere infiltrarse con personas del lugar?")
-arbol_decision.izq.izq.der = nodoArbol("¿La misión requiere no ser detectado?")
+arbol_decision.der.izq = nodoArbol("¿La misión requiere tecnología avanzada?")
+arbol_decision.der.der = nodoArbol("¿La misión es de recuperación?")
 
+arbol_decision.der.izq.izq = nodoArbol(iron_man)
+arbol_decision.der.izq.der = nodoArbol(nick_fury)
+
+arbol_decision.der.der.izq = nodoArbol("¿Es necesario infiltrarse con personas del lugar?")
+arbol_decision.der.der.der = nodoArbol("¿La misión es de destrucción?")
+
+arbol_decision.der.der.izq.izq = nodoArbol(winter_soldier)
+arbol_decision.der.der.izq.der = nodoArbol(cap_america)
+
+arbol_decision.der.der.der.izq = nodoArbol("¿Hay ejércitos completos?")
+arbol_decision.der.der.der.der = nodoArbol(ant_man)
+
+arbol_decision.der.der.der.izq.izq = nodoArbol(thor)
+arbol_decision.der.der.der.izq.der = nodoArbol(hulk)
+
+# Ejemplo de uso
+arbol = ArbolDecision(arbol_decision)
+superheroe_seleccionado = arbol.asignar_superheroe()
+print(f"\nSuperhéroe seleccionado: {superheroe_seleccionado}\nDescripción: {superheroe_seleccionado.descripcion}")
