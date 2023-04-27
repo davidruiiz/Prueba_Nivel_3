@@ -9,17 +9,23 @@ Una vez creado el módulo, crea un script calculos.py en el mismo directorio en 
 """
 
 from operaciones import *
-
  
 
-a, b, c, d = (10, 5, 0, "Hola")
+operacion1=Operaciones(10, 5)
+operacion2=Operaciones(5, "hola")
+operacion3=Operaciones(5, 5) 
+operacion4=Operaciones(10, 0)
 
- 
+lista=ListaEnlazada()
 
-print( "{} + {} = {}".format(a, b, suma(a, b) ) )
+resultado_suma=operacion1.suma()
+resultado_resta=operacion2.resta()
+resultado_producto=operacion3.producto()
+resultado_division=operacion4.division()
 
-print( "{} - {} = {}".format(b, d, resta(b, d) ) )
+print("{} + {} = {}".format(operacion1.num1, operacion1.num2, resultado_suma))
+print("{} - {} = {}".format(operacion2.num1, operacion2.num2, resultado_resta))
+print("{} * {} = {}".format(operacion3.num1, operacion3.num2, resultado_producto))
+print("{} / {} = {}".format(operacion4.num1, operacion4.num2, resultado_division))
 
-print( "{} * {} = {}".format(b, b, producto(b, b) ) )
 
-print( "{} / {} = {}".format(a, c, division(a, c) ) )
